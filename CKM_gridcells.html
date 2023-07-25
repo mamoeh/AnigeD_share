@@ -187,10 +187,10 @@ library(viridis)    # plotting</code></pre>
 <div id="prepare-example-microdata" class="section level2">
 <h2>Prepare example microdata</h2>
 <p>As an example, raw population counts from the Census 2011 are treated with the Cell Key Method (CKM). In a first step, we download the aggregates from <a href="https://www.zensus2011.de/DE/Home/Aktuelles/DemografischeGrunddaten.html?nn=559100#Gitter">here</a>. ‘“Bevölkerung im 100 Meter-Gitter” im CSV-Format’. The grid size is 100m by 100m.</p>
-<p>We reverse-transform this data back into microdata, which we will use as our example data set. To speed everything up, we only look at a 20km by 20km area (i.e. 2000 by 2000 grid cells).</p>
+<p>We reverse-transform this data back into microdata, which we will use as our example data set. To speed everything up, we only look at a 50km by 50km area (i.e. 500 by 500 grid cells).</p>
 <pre class="r"><code>pop &lt;- fread(&quot;data/Zensus_Bevoelkerung_100m-Gitter.csv&quot;)
 
-# select 20km x 20km chunk
+# select 50km x 50km chunk
 pop &lt;- filter(pop, Einwohner &gt; 0 &amp; 
                 x_mp_100m &gt; 4125000 &amp; x_mp_100m &lt; 4175000 &amp;
                 y_mp_100m &gt; 3010000 &amp; y_mp_100m &lt; 3060000)
